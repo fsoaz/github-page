@@ -1,375 +1,376 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="cyber">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Francisco Soares | Backend Engineer specializing in Python, Automation, and Distributed Systems.">
-  <title>Francisco Soares | Terminal Portfolio</title>
+  <meta name="description" content="Francisco Soares — Senior Backend Engineer specializing in Python, FastAPI, Distributed Systems, Automation, and Observability. Explore interactive CLI terminal & GUI portfolio.">
+  <meta name="keywords" content="Francisco Soares, Backend Engineer, Python, FastAPI, PostgreSQL, Docker, Automation, Linux, Portfolio">
+  <meta name="author" content="Francisco Soares">
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Francisco Soares — Terminal & GUI Engineering Portfolio">
+  <meta property="og:description" content="Backend Engineer specialized in high-performance automation, observability, and distributed architectures.">
+  <meta property="og:image" content="assets/images/avatar.jpg">
+  <meta property="og:type" content="website">
+  
+  <title>Francisco Soares | Backend Engineer Portfolio</title>
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-color: #0b0e14;
-      --card-bg: #161b22;
-      --text-main: #e0e0e0;
-      --text-muted: #8b949e;
-      --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #a29bfe 100%);
-      --terminal-header: #21262d;
-      --border-color: #30363d;
-      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      font-family: var(--font-mono);
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    .terminal-card {
-      width: 100%;
-      max-width: 850px;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 172, 254, 0.1);
-      overflow: hidden;
-      animation: fadeIn 0.8s ease-out;
-    }
-
-    .terminal-header {
-      background: var(--terminal-header);
-      padding: 10px 15px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
-    .dot-red { background: #ff5f56; }
-    .dot-yellow { background: #ffbd2e; }
-    .dot-green { background: #27c93f; }
-
-    .terminal-title {
-      flex-grow: 1;
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-weight: 400;
-    }
-
-    .terminal-content {
-      padding: 30px;
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-
-    /* Scrollbar */
-    .terminal-content::-webkit-scrollbar {
-      width: 8px;
-    }
-    .terminal-content::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    .terminal-content::-webkit-scrollbar-thumb {
-      background: var(--border-color);
-      border-radius: 4px;
-    }
-
-    .prompt {
-      color: #4facfe;
-      margin-right: 10px;
-      user-select: none;
-    }
-
-    .command {
-      color: #a29bfe;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .output {
-      margin-bottom: 30px;
-      padding-left: 15px;
-    }
-
-    h1, h2, h3 {
-      font-weight: 700;
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
-    }
-
-    h1 { font-size: 1.8rem; margin-bottom: 10px; }
-    h2 { font-size: 1.2rem; margin-bottom: 15px; }
-
-    .bio-text {
-      color: var(--text-main);
-      max-width: 600px;
-    }
-
-    .skill-tag {
-      display: inline-block;
-      padding: 2px 10px;
-      margin: 4px;
-      border: 1px solid #4facfe;
-      color: #4facfe;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      transition: all 0.2s ease;
-    }
-
-    .skill-tag:hover {
-      background: #4facfe;
-      color: var(--bg-color);
-    }
-
-    .project-item {
-      margin-bottom: 20px;
-      border-left: 2px solid var(--border-color);
-      padding-left: 15px;
-      transition: border-color 0.3s ease;
-    }
-
-    .project-item:hover {
-      border-color: #a29bfe;
-    }
-
-    .project-item a {
-      color: var(--text-main);
-      text-decoration: none;
-      font-weight: 700;
-      transition: color 0.2s;
-    }
-
-    .project-item a:hover {
-      color: #00f2fe;
-    }
-
-    .project-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin: 4px 0;
-    }
-
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--text-main);
-      text-decoration: none;
-      padding: 10px;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      transition: all 0.2s ease;
-    }
-
-    .social-link:hover {
-      border-color: #00f2fe;
-      background: rgba(0, 242, 254, 0.05);
-      transform: translateY(-2px);
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 500px;
-    }
-
-    input, textarea {
-      background: #0d1117;
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      padding: 12px;
-      border-radius: 4px;
-      font-family: var(--font-mono);
-      font-size: 0.9rem;
-    }
-
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #4facfe;
-      box-shadow: 0 0 0 2px rgba(79, 172, 254, 0.2);
-    }
-
-    button {
-      background: var(--accent-gradient);
-      border: none;
-      color: var(--bg-color);
-      padding: 12px 24px;
-      font-family: var(--font-mono);
-      font-weight: 700;
-      border-radius: 4px;
-      cursor: pointer;
-      align-self: flex-start;
-      transition: opacity 0.2s, transform 0.1s;
-    }
-
-    button:hover { opacity: 0.9; }
-    button:active { transform: scale(0.98); }
-
-    .cursor {
-      display: inline-block;
-      width: 10px;
-      height: 20px;
-      background: #4facfe;
-      margin-left: 5px;
-      animation: blink 1s step-end infinite;
-      vertical-align: middle;
-    }
-
-    @keyframes blink {
-      from, to { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    footer {
-      margin-top: 30px;
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      text-align: center;
-    }
-
-    @media (max-width: 600px) {
-      .terminal-content { padding: 20px; }
-      h1 { font-size: 1.4rem; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <main class="terminal-card">
-    <div class="terminal-header">
-      <div class="dot dot-red"></div>
-      <div class="dot dot-yellow"></div>
-      <div class="dot dot-green"></div>
-      <div class="terminal-title">fsoaz — bash — 80x24</div>
+  <!-- Matrix Background Canvas -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- Top Telemetry & Controls Navbar -->
+  <header class="top-nav">
+    <a href="#" class="nav-brand">
+      <img src="assets/images/avatar.jpg" alt="Francisco Soares Logo" class="nav-brand-avatar">
+      <span class="brand-text">fsoaz.dev</span>
+    </a>
+
+    <!-- System Metrics Bar -->
+    <div class="system-telemetry">
+      <div class="telemetry-item">
+        <span class="status-dot"></span>
+        <span>SYS: ONLINE</span>
+      </div>
+      <div class="telemetry-item">
+        <span>CPU:</span>
+        <strong id="telemetry-cpu" style="color:var(--accent-cyan)">2.1%</strong>
+      </div>
+      <div class="telemetry-item">
+        <span>MEM:</span>
+        <strong id="telemetry-mem" style="color:var(--accent-purple)">4.2GB / 16GB</strong>
+      </div>
+      <div class="telemetry-item">
+        <span>PING:</span>
+        <strong id="telemetry-ping" style="color:var(--accent-green)">12ms</strong>
+      </div>
     </div>
 
-    <div class="terminal-content">
-      <!-- Section: Whoami -->
-      <div class="command-block">
-        <p class="command"><span class="prompt">$</span>whoami</p>
-        <div class="output">
-          <h1>Francisco Soares</h1>
-          <p class="bio-text">
-            Backend Engineer specialized in high-performance automation, system observability, and distributed architectures.
-            Passionate about building robust CLI tools and optimizing Linux environments.
+    <!-- Mode & Theme Controls -->
+    <div class="nav-controls">
+      <select id="theme-select" class="theme-select" title="Choose color theme">
+        <option value="cyber">🎨 Theme: Cyber</option>
+        <option value="dracula">🎨 Theme: Dracula</option>
+        <option value="monokai">🎨 Theme: Monokai</option>
+        <option value="nord">🎨 Theme: Nord</option>
+        <option value="matrix">🎨 Theme: Matrix</option>
+      </select>
+
+      <button id="btn-toggle-audio" class="nav-btn" title="Toggle keypress sound effects">
+        🔇 Sound: Off
+      </button>
+
+      <button id="btn-toggle-cli" class="nav-btn active">
+        ⌨️ CLI Shell
+      </button>
+      
+      <button id="btn-toggle-gui" class="nav-btn">
+        ✨ GUI Mode
+      </button>
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main class="main-wrapper">
+
+    <!-- ====================================================================
+         VIEW 1: INTERACTIVE CLI TERMINAL VIEW
+         ==================================================================== -->
+    <section id="cli-view" class="view active">
+      <div class="terminal-window" id="terminal-card">
+        <!-- Terminal Header -->
+        <div class="terminal-header">
+          <div class="window-dots">
+            <div class="window-dot dot-close" title="Close"></div>
+            <div class="window-dot dot-minimize" title="Minimize"></div>
+            <div class="window-dot dot-maximize" title="Maximize"></div>
+          </div>
+          <div class="window-title">
+            <span>fsoaz@workstation: ~ (zsh)</span>
+          </div>
+          <div class="window-actions">
+            <span class="mini-pill">UTF-8</span>
+            <span class="mini-pill">80x24</span>
+          </div>
+        </div>
+
+        <!-- Quick Action Pill Bar -->
+        <div class="quick-commands">
+          <span style="color:var(--text-dim); font-size:0.75rem; font-family:var(--font-mono); margin-right:4px;">QUICK COMMANDS:</span>
+          <button class="cmd-pill" data-cmd="whoami">$ whoami</button>
+          <button class="cmd-pill" data-cmd="neofetch">$ neofetch</button>
+          <button class="cmd-pill" data-cmd="skills">$ skills</button>
+          <button class="cmd-pill" data-cmd="projects">$ projects</button>
+          <button class="cmd-pill" data-cmd="contact">$ contact</button>
+          <button class="cmd-pill" data-cmd="matrix">$ matrix</button>
+          <button class="cmd-pill" data-cmd="gui">$ gui</button>
+          <button class="cmd-pill" data-cmd="clear">$ clear</button>
+        </div>
+
+        <!-- Terminal Logs & Command Line -->
+        <div class="terminal-body" id="terminal-body">
+          <div id="terminal-logs">
+            <!-- Initial boot log inserted by app.js -->
+          </div>
+
+          <!-- Active Prompt Line -->
+          <div class="cli-input-wrapper">
+            <div class="cli-prompt-line" style="margin-bottom:0;">
+              <span class="cli-user">fsoaz</span>@<span class="cli-host">dev</span>:<span class="cli-path">~</span><span class="cli-symbol">$</span>
+            </div>
+            <input type="text" id="cli-input" class="cli-input" placeholder="Type a command (e.g. help, skills, projects)..." autocomplete="off" spellcheck="false" autofocus>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 2: GRAPHICAL BENTO GRID GUI VIEW
+         ==================================================================== -->
+    <section id="gui-view" class="view">
+      
+      <!-- Hero Bento Section -->
+      <div class="gui-hero">
+        <div class="bento-card">
+          <div class="profile-card-header">
+            <img src="assets/images/avatar.jpg" alt="Francisco Soares Avatar" class="avatar-large">
+            <div class="profile-info">
+              <h1>Francisco Soares</h1>
+              <p class="profile-role">Backend Engineer & Infrastructure Architect</p>
+            </div>
+          </div>
+          <p class="profile-bio">
+            Specialized in high-performance Python backends, system observability, microservices, and distributed data pipelines. Passionate about automated infrastructure, Linux internals, and resilient database performance tuning.
           </p>
+          <div class="hero-actions">
+            <a href="#contact-form-section" class="btn-primary">
+              📬 Get In Touch
+            </a>
+            <button class="btn-secondary" onclick="document.getElementById('btn-toggle-cli').click();">
+              ⌨️ Open CLI Terminal
+            </button>
+            <a href="https://github.com/fsoaz" target="_blank" class="btn-secondary">
+              🐙 GitHub Profile ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- System Stats Bento Card -->
+        <div class="bento-card" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div class="status-badge-container">
+              <span class="status-dot"></span>
+              <span>Available for Core Engineering Roles</span>
+            </div>
+            <h3 style="font-size:1.1rem; color:var(--text-main); margin-bottom:12px;">System Snapshot</h3>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat-box">
+              <div class="stat-val">99.9%</div>
+              <div class="stat-lbl">Uptime Target</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val">10+</div>
+              <div class="stat-lbl">Core Tech Stack</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val">Python</div>
+              <div class="stat-lbl">Primary Spec</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val">FastAPI</div>
+              <div class="stat-lbl">API Framework</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Section: Skills -->
-      <div class="command-block">
-        <p class="command"><span class="prompt">$</span>ls --tree skills/</p>
-        <div class="output">
-          <div class="skill-group">
-            <span class="skill-tag">Python (FastAPI)</span>
+      <!-- Skills Matrix Section -->
+      <div class="section-title">
+        <span>01.</span> Technical Competencies
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-category-card">
+          <div class="category-header">
+            <span>⚙️</span> Backend Development
+          </div>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:12px;">
+            High-throughput APIs, asynchronous task processing, and robust application logic.
+          </p>
+          <div class="skill-pills-container">
+            <span class="skill-tag">Python 3.12</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">AsyncIO</span>
+            <span class="skill-tag">REST & WebSockets</span>
+            <span class="skill-tag">Celery</span>
+            <span class="skill-tag">PyTest</span>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <div class="category-header">
+            <span>🗄️</span> Databases & Storage
+          </div>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:12px;">
+            Relational modeling, indexing optimization, caching, and data integrity.
+          </p>
+          <div class="skill-pills-container">
             <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Linux / Bash</span>
-            <span class="skill-tag">Observability</span>
-            <span class="skill-tag">CI/CD</span>
-            <span class="skill-tag">Distributed Systems</span>
+            <span class="skill-tag">Redis Caching</span>
+            <span class="skill-tag">SQLAlchemy</span>
+            <span class="skill-tag">Alembic Migrations</span>
+            <span class="skill-tag">Query Optimization</span>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <div class="category-header">
+            <span>☁️</span> Infrastructure & DevOps
+          </div>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:12px;">
+            Automated deployment pipelines, container orchestration, and server monitoring.
+          </p>
+          <div class="skill-pills-container">
+            <span class="skill-tag">Docker & Compose</span>
+            <span class="skill-tag">Linux / Bash Scripting</span>
+            <span class="skill-tag">GitHub Actions CI/CD</span>
+            <span class="skill-tag">System Observability</span>
+            <span class="skill-tag">Nginx</span>
           </div>
         </div>
       </div>
 
-      <!-- Section: Projects -->
-      <div class="command-block">
-        <p class="command"><span class="prompt">$</span>cat projects.json</p>
-        <div class="output">
-          <div class="project-item">
-            <a href="https://github.com/fsoaz/sales-analysis-dashboard" target="_blank">Sales Analysis Dashboard</a>
-            <p class="project-meta">Python | Next.js | Streamlit</p>
-            <p>Interactive Streamlit dashboard for analyzing Superstore sales data — top products, monthly revenue, and category profitability.</p>
-          </div>
-          <div class="project-item">
-            <a href="https://github.com/fsoaz/dental-radar" target="_blank">Dental Radar</a>
-            <p class="project-meta">Python | Next.js | PostgreSQL</p>
-            <p>B2B sales-intelligence platform that ranks dental clinics by purchase propensity.</p>
-          </div>
-        </div>
+      <!-- Featured Projects Section -->
+      <div class="section-title">
+        <span>02.</span> Featured Projects
       </div>
 
-      <!-- Section: Connect -->
-      <div class="command-block">
-        <p class="command"><span class="prompt">$</span>ssh-keyscan -t rsa social-links</p>
-        <div class="output">
-          <div class="links-grid">
-            <a href="https://github.com/fsoaz" target="_blank" class="social-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              GitHub
-            </a>
-            <a href="#" target="_blank" class="social-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-              LinkedIn
-            </a>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <div class="project-img-wrapper">
+            <img src="assets/images/sales-dashboard.jpg" alt="Sales Analysis Dashboard Mockup" class="project-img">
           </div>
-        </div>
+          <div class="project-content">
+            <div class="project-title">
+              Sales Analysis Dashboard
+            </div>
+            <p class="project-desc">
+              Interactive analytics dashboard for evaluating Superstore sales performance — tracking top product metrics, monthly revenue velocity, and category profitability distributions.
+            </p>
+            <div class="skill-pills-container" style="margin-bottom:14px;">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Streamlit</span>
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">Pandas</span>
+            </div>
+            <div class="project-footer">
+              <a href="https://github.com/fsoaz/sales-analysis-dashboard" target="_blank" class="project-link">
+                View Source Code ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div class="project-img-wrapper">
+            <img src="assets/images/dental-radar.jpg" alt="Dental Radar Platform Mockup" class="project-img">
+          </div>
+          <div class="project-content">
+            <div class="project-title">
+              Dental Radar Intelligence
+            </div>
+            <p class="project-desc">
+              B2B sales-intelligence platform that scores and ranks dental clinics by purchase propensity using data aggregation algorithms and market signal evaluation.
+            </p>
+            <div class="skill-pills-container" style="margin-bottom:14px;">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">Analytics</span>
+            </div>
+            <div class="project-footer">
+              <a href="https://github.com/fsoaz/dental-radar" target="_blank" class="project-link">
+                View Source Code ↗
+              </a>
+            </div>
+          </div>
+        </article>
       </div>
 
-      <!-- Section: Contact -->
-      <div class="command-block">
-        <p class="command"><span class="prompt">$</span>mail --to francisco</p>
-        <div class="output">
-          <form action="https://formspree.io/f/xpqklvnk" method="POST">
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="email@address.com" required>
-            <textarea name="message" placeholder="Describe your inquiry..." rows="4" required></textarea>
-            <button type="submit">Send Message</button>
+      <!-- Contact Section -->
+      <div class="section-title" id="contact-form-section">
+        <span>03.</span> Get In Touch
+      </div>
+
+      <div class="contact-section-grid">
+        <div class="bento-card">
+          <h3 style="font-size:1.2rem; color:var(--text-main); margin-bottom:12px;">Send Message</h3>
+          <form action="https://formspree.io/f/xpqklvnk" method="POST" class="contact-form">
+            <div class="form-group">
+              <label for="form-name">Your Name</label>
+              <input type="text" id="form-name" name="name" class="form-input" placeholder="Alex Rivera" required>
+            </div>
+            <div class="form-group">
+              <label for="form-email">Email Address</label>
+              <input type="email" id="form-email" name="email" class="form-input" placeholder="alex@company.com" required>
+            </div>
+            <div class="form-group">
+              <label for="form-message">Message</label>
+              <textarea id="form-message" name="message" rows="4" class="form-textarea" placeholder="Discussing backend architecture, engineering roles, or consulting..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="align-self:flex-start;">
+              🚀 Send Transmission
+            </button>
           </form>
         </div>
+
+        <div class="bento-card" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <h3 style="font-size:1.2rem; color:var(--text-main); margin-bottom:12px;">Direct Network Channels</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:20px;">
+              Feel free to connect directly on GitHub or LinkedIn for code reviews, engineering discussions, or project inquiries.
+            </p>
+            <div class="social-links-grid">
+              <a href="https://github.com/fsoaz" target="_blank" class="social-card">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <span>GitHub</span>
+              </a>
+              <a href="https://linkedin.com/in/fsoaz" target="_blank" class="social-card">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+
+          <div style="margin-top:20px; padding:12px; background:rgba(0,0,0,0.2); border:1px solid var(--border-color); border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:0.78rem; color:var(--text-dim);">
+            STATUS: Node active & ready for remote contracts.
+          </div>
+        </div>
       </div>
 
-      <div class="command-block">
-        <p class="command"><span class="prompt">$</span><span class="cursor"></span></p>
-      </div>
-    </div>
+    </section>
+
   </main>
 
+  <!-- Footer -->
   <footer>
-    © 2026 Francisco Soares.
+    <p>© 2026 Francisco Soares. Architected with pure HTML, CSS & Vanilla JS.</p>
   </footer>
 
-  <script>
-    // Smooth reveal for commands
-    document.querySelectorAll('.command-block').forEach((block, index) => {
-      block.style.opacity = '0';
-      block.style.transition = `opacity 0.5s ease ${index * 0.2}s`;
-      setTimeout(() => block.style.opacity = '1', 50);
-    });
-  </script>
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
 </body>
 </html>
