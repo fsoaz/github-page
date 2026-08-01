@@ -180,10 +180,10 @@ document.addEventListener('DOMContentLoaded', () => {
     whoami: () => `
 <div class="cli-response">
   <h3 style="color:var(--accent-cyan); font-size:1.1rem; margin-bottom:6px;">Francisco Soares</h3>
-  <p style="color:var(--accent-purple); font-weight:600; margin-bottom:10px;">Backend Engineer | Automation & Distributed Systems</p>
+  <p style="color:var(--accent-purple); font-weight:600; margin-bottom:10px;">Backend Engineer | Data, AI & Automation</p>
   <p style="line-height:1.6; max-width:650px; color:var(--text-main);">
-    Passionate about architecting scalable Python backends, high-throughput data processing pipelines, and resilient microservices.
-    Specialized in FastAPI, PostgreSQL performance tuning, Docker containerization, and observability instrumentation.
+    Builds dependable Python backends, data-rich dashboards, and evidence-backed AI product experiences.
+    Specialized in FastAPI, PostgreSQL, Streamlit analytics, Docker, and production-minded automation.
   </p>
 </div>`,
 
@@ -245,26 +245,59 @@ document.addEventListener('DOMContentLoaded', () => {
     projects: () => `
 <div class="cli-response">
   <p style="color:var(--accent-cyan); font-weight:700; margin-bottom:12px;">📦 FEATURED PROJECTS:</p>
-  
+
   <div class="project-cli-card">
-    <a href="https://github.com/fsoaz/sales-analysis-dashboard" target="_blank" class="project-cli-title">
-      <span>1. Sales Analysis Dashboard</span>
+    <a href="https://github.com/fsoaz/wiki" target="_blank" rel="noopener noreferrer" class="project-cli-title">
+      <span>1. WikiAI</span>
       <span>↗</span>
     </a>
-    <p class="project-cli-tech">Python | Streamlit | Next.js | Pandas</p>
+    <p class="project-cli-tech">Next.js | FastAPI | PostgreSQL | AI Search</p>
     <p style="font-size:0.88rem; color:var(--text-muted);">
-      Interactive data telemetry and analytics suite for evaluating sales performance, product profitability trends, and regional revenue velocity.
+      Evidence-backed encyclopedia MVP with grounded search, citation-aware articles, and contributor, reviewer, and admin workflows.
     </p>
   </div>
 
   <div class="project-cli-card">
-    <a href="https://github.com/fsoaz/dental-radar" target="_blank" class="project-cli-title">
-      <span>2. Dental Radar Platform</span>
+    <a href="https://github.com/fsoaz/financial-market-dashboard" target="_blank" rel="noopener noreferrer" class="project-cli-title">
+      <span>2. Financial Market Dashboard</span>
+      <span>↗</span>
+    </a>
+    <p class="project-cli-tech">Python | Streamlit | Plotly | Market APIs</p>
+    <p style="font-size:0.88rem; color:var(--text-muted);">
+      Multi-asset analytics for stocks, indexes, and crypto with interactive charts, indicators, and correlation comparisons.
+    </p>
+  </div>
+
+  <div class="project-cli-card">
+    <a href="https://github.com/fsoaz/sales-analysis-dashboard" target="_blank" rel="noopener noreferrer" class="project-cli-title">
+      <span>3. Sales Analysis Dashboard</span>
+      <span>↗</span>
+    </a>
+    <p class="project-cli-tech">Python | Streamlit | Plotly | Pandas</p>
+    <p style="font-size:0.88rem; color:var(--text-muted);">
+      Bilingual Superstore analytics for revenue, profitability, top products, and live filter-driven performance comparisons.
+    </p>
+  </div>
+
+  <div class="project-cli-card">
+    <a href="https://github.com/fsoaz/TrialReminderApp" target="_blank" rel="noopener noreferrer" class="project-cli-title">
+      <span>4. Trial Reminder</span>
+      <span>↗</span>
+    </a>
+    <p class="project-cli-tech">Android | Kotlin | Room | Exact Alarms</p>
+    <p style="font-size:0.88rem; color:var(--text-muted);">
+      Android app that tracks trial end dates and sends exact local reminders before a subscription charge.
+    </p>
+  </div>
+
+  <div class="project-cli-card">
+    <a href="https://github.com/fsoaz/dental-radar" target="_blank" rel="noopener noreferrer" class="project-cli-title">
+      <span>5. Dental Radar Intelligence</span>
       <span>↗</span>
     </a>
     <p class="project-cli-tech">Python | PostgreSQL | Next.js | Machine Learning</p>
     <p style="font-size:0.88rem; color:var(--text-muted);">
-      B2B sales-intelligence radar engine scoring and ranking regional dental clinics based on purchase propensity algorithms.
+      B2B sales intelligence that scores and ranks regional dental clinics using data aggregation and market signals.
     </p>
   </div>
 </div>`,

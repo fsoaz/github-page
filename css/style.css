@@ -107,6 +107,26 @@ html {
   font-size: 16px;
 }
 
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-cyan);
+  color: var(--bg-dark);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform var(--transition-fast);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 body {
   background-color: var(--bg-dark);
   color: var(--text-main);
@@ -119,6 +139,11 @@ body {
     radial-gradient(ellipse 80% 80% at 50% -20%, rgba(56, 189, 248, 0.12), rgba(255, 255, 255, 0)),
     radial-gradient(ellipse 50% 50% at 100% 100%, rgba(168, 85, 247, 0.08), rgba(255, 255, 255, 0));
   background-attachment: fixed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
 }
 
 /* Background Canvas (Matrix Rain) */
@@ -605,9 +630,21 @@ body {
   font-size: 2.2rem;
   font-weight: 800;
   line-height: 1.2;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
   background: var(--gradient-accent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.hero-eyebrow {
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
 }
 
 .profile-role {
@@ -622,7 +659,17 @@ body {
   color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.7;
+  max-width: 62ch;
   margin-bottom: 24px;
+  text-wrap: pretty;
+}
+
+.recruiter-note {
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: -8px 0 22px;
 }
 
 .hero-actions {
@@ -651,6 +698,10 @@ body {
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
+}
+
+.btn-primary:active, .btn-secondary:active, .nav-btn:active, .cmd-pill:active {
+  transform: translateY(1px) scale(0.98);
 }
 
 .btn-secondary {
@@ -771,6 +822,19 @@ body {
   gap: 24px;
 }
 
+@media (min-width: 900px) {
+  .projects-grid .project-card:first-child {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 0.85fr);
+  }
+
+  .projects-grid .project-card:first-child .project-img-wrapper {
+    height: 100%;
+    min-height: 290px;
+  }
+}
+
 @media (max-width: 600px) {
   .projects-grid { grid-template-columns: 1fr; }
 }
@@ -819,6 +883,7 @@ body {
 .project-title {
   font-size: 1.25rem;
   font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--text-main);
   margin-bottom: 8px;
   display: flex;
@@ -832,6 +897,7 @@ body {
   line-height: 1.6;
   margin-bottom: 18px;
   flex: 1;
+  text-wrap: pretty;
 }
 
 .project-footer {
@@ -854,6 +920,10 @@ body {
 }
 
 .project-link:hover { gap: 10px; color: #fff; }
+
+.project-link:focus-visible, .social-card:focus-visible {
+  border-radius: var(--radius-sm);
+}
 
 /* Contact Section */
 .contact-section-grid {
@@ -952,5 +1022,7 @@ footer a {
   .top-nav { padding: 10px 12px; }
   .system-telemetry { display: none; }
   .profile-info h1 { font-size: 1.7rem; }
+  .profile-card-header { align-items: flex-start; }
+  .hero-actions > * { width: 100%; justify-content: center; }
   .terminal-window { min-height: 500px; }
 }

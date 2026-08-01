@@ -13,7 +13,7 @@ Designed for high visual impact, seamlessly bridging an interactive terminal exp
   - One-tap quick command pills bar for mobile and touch devices.
 - ✨ **Graphical Bento-Grid GUI Mode**:
   - Glassmorphic UI layout with dark cyberpunk aesthetics and glowing accent borders.
-  - High-res project mockups and tech stack tags.
+  - Curated public GitHub projects with high-res mockups and verified tech-stack tags.
 - 🎨 **Multi-Theme Engine**:
   - Instant theme switching between **Cyberpunk**, **Dracula**, **Monokai**, **Nord**, and **Matrix**.
 - 🔊 **Web Audio Synthesizer**:

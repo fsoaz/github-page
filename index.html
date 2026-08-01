@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Francisco Soares — Senior Backend Engineer specializing in Python, FastAPI, Distributed Systems, Automation, and Observability. Explore interactive CLI terminal & GUI portfolio.">
-  <meta name="keywords" content="Francisco Soares, Backend Engineer, Python, FastAPI, PostgreSQL, Docker, Automation, Linux, Portfolio">
+  <meta name="description" content="Francisco Soares — Backend Engineer building Python data products, evidence-backed AI experiences, and dependable automation. Explore an interactive CLI and GUI portfolio.">
+  <meta name="keywords" content="Francisco Soares, Backend Engineer, Python, FastAPI, PostgreSQL, Streamlit, AI, Automation, Portfolio">
   <meta name="author" content="Francisco Soares">
   
   <!-- OpenGraph Metadata -->
   <meta property="og:title" content="Francisco Soares — Terminal & GUI Engineering Portfolio">
-  <meta property="og:description" content="Backend Engineer specialized in high-performance automation, observability, and distributed architectures.">
+  <meta property="og:description" content="Backend Engineer building data products, evidence-backed AI experiences, and dependable automation.">
   <meta property="og:image" content="assets/images/avatar.jpg">
   <meta property="og:type" content="website">
   
@@ -24,6 +24,8 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <a class="skip-link" href="#portfolio-content">Skip to portfolio content</a>
 
   <!-- Matrix Background Canvas -->
   <canvas id="matrix-canvas"></canvas>
@@ -69,23 +71,23 @@
         🔇 Sound: Off
       </button>
 
-      <button id="btn-toggle-cli" class="nav-btn active">
+      <button id="btn-toggle-cli" class="nav-btn">
         ⌨️ CLI Shell
       </button>
       
-      <button id="btn-toggle-gui" class="nav-btn">
-        ✨ GUI Mode
+      <button id="btn-toggle-gui" class="nav-btn active">
+        ✨ Portfolio
       </button>
     </div>
   </header>
 
   <!-- Main View Container -->
-  <main class="main-wrapper">
+  <main id="portfolio-content" class="main-wrapper">
 
     <!-- ====================================================================
          VIEW 1: INTERACTIVE CLI TERMINAL VIEW
          ==================================================================== -->
-    <section id="cli-view" class="view active">
+    <section id="cli-view" class="view">
       <div class="terminal-window" id="terminal-card">
         <!-- Terminal Header -->
         <div class="terminal-header">
@@ -136,7 +138,7 @@
     <!-- ====================================================================
          VIEW 2: GRAPHICAL BENTO GRID GUI VIEW
          ==================================================================== -->
-    <section id="gui-view" class="view">
+    <section id="gui-view" class="view active">
       
       <!-- Hero Bento Section -->
       <div class="gui-hero">
@@ -144,22 +146,27 @@
           <div class="profile-card-header">
             <img src="assets/images/avatar.jpg" alt="Francisco Soares Avatar" class="avatar-large">
             <div class="profile-info">
+              <p class="hero-eyebrow">Backend engineer · Open to opportunities</p>
               <h1>Francisco Soares</h1>
-              <p class="profile-role">Backend Engineer & Infrastructure Architect</p>
+              <p class="profile-role">Data, AI & Automation Products</p>
             </div>
           </div>
           <p class="profile-bio">
-            Specialized in high-performance Python backends, system observability, microservices, and distributed data pipelines. Passionate about automated infrastructure, Linux internals, and resilient database performance tuning.
+            I build dependable Python backends and data products—from evidence-backed AI experiences to interactive analytics dashboards. My focus is clear product thinking, maintainable systems, and useful automation.
           </p>
+          <p class="recruiter-note">Open to backend, platform, and product-engineering roles, plus selective consulting engagements.</p>
           <div class="hero-actions">
             <a href="#contact-form-section" class="btn-primary">
-              📬 Get In Touch
+              Start a conversation
+            </a>
+            <a href="#featured-projects" class="btn-secondary">
+              Explore selected work ↓
             </a>
             <button class="btn-secondary" onclick="document.getElementById('btn-toggle-cli').click();">
-              ⌨️ Open CLI Terminal
+              Open the CLI
             </button>
-            <a href="https://github.com/fsoaz" target="_blank" class="btn-secondary">
-              🐙 GitHub Profile ↗
+            <a href="https://github.com/fsoaz" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              GitHub profile ↗
             </a>
           </div>
         </div>
@@ -169,34 +176,34 @@
           <div>
             <div class="status-badge-container">
               <span class="status-dot"></span>
-              <span>Available for Core Engineering Roles</span>
+              <span>Available for engineering opportunities</span>
             </div>
             <h3 style="font-size:1.1rem; color:var(--text-main); margin-bottom:12px;">System Snapshot</h3>
           </div>
 
           <div class="stat-grid">
             <div class="stat-box">
-              <div class="stat-val">99.9%</div>
-              <div class="stat-lbl">Uptime Target</div>
+              <div class="stat-val">05</div>
+              <div class="stat-lbl">Selected projects</div>
             </div>
             <div class="stat-box">
-              <div class="stat-val">10+</div>
-              <div class="stat-lbl">Core Tech Stack</div>
+              <div class="stat-val">AI</div>
+              <div class="stat-lbl">Product experience</div>
             </div>
             <div class="stat-box">
               <div class="stat-val">Python</div>
-              <div class="stat-lbl">Primary Spec</div>
+              <div class="stat-lbl">Backend foundation</div>
             </div>
             <div class="stat-box">
-              <div class="stat-val">FastAPI</div>
-              <div class="stat-lbl">API Framework</div>
+              <div class="stat-val">Data</div>
+              <div class="stat-lbl">Analytics focus</div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Skills Matrix Section -->
-      <div class="section-title">
+      <div class="section-title" id="featured-projects">
         <span>01.</span> Technical Competencies
       </div>
 
@@ -260,23 +267,23 @@
         <!-- Project 1 -->
         <article class="project-card">
           <div class="project-img-wrapper">
-            <img src="assets/images/sales-dashboard.jpg" alt="Sales Analysis Dashboard Mockup" class="project-img">
+            <img src="assets/images/wikiai-cover.png" alt="WikiAI knowledge platform dashboard mockup" class="project-img">
           </div>
           <div class="project-content">
             <div class="project-title">
-              Sales Analysis Dashboard
+              WikiAI
             </div>
             <p class="project-desc">
-              Interactive analytics dashboard for evaluating Superstore sales performance — tracking top product metrics, monthly revenue velocity, and category profitability distributions.
+              Evidence-backed encyclopedia MVP with grounded search, citation-aware articles, contributor workflows, and reviewer and admin surfaces.
             </p>
             <div class="skill-pills-container" style="margin-bottom:14px;">
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">Streamlit</span>
               <span class="skill-tag">Next.js</span>
-              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">FastAPI</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">AI Search</span>
             </div>
             <div class="project-footer">
-              <a href="https://github.com/fsoaz/sales-analysis-dashboard" target="_blank" class="project-link">
+              <a href="https://github.com/fsoaz/wiki" target="_blank" rel="noopener noreferrer" class="project-link">
                 View Source Code ↗
               </a>
             </div>
@@ -286,23 +293,101 @@
         <!-- Project 2 -->
         <article class="project-card">
           <div class="project-img-wrapper">
-            <img src="assets/images/dental-radar.jpg" alt="Dental Radar Platform Mockup" class="project-img">
+            <img src="assets/images/financial-market-cover.png" alt="Financial market analytics dashboard mockup" class="project-img">
+          </div>
+          <div class="project-content">
+            <div class="project-title">
+              Financial Market Dashboard
+            </div>
+            <p class="project-desc">
+              Multi-asset market analytics for stocks, indexes, and crypto with interactive charts, indicators, drawdown analysis, and correlation comparisons.
+            </p>
+            <div class="skill-pills-container" style="margin-bottom:14px;">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Streamlit</span>
+              <span class="skill-tag">Plotly</span>
+              <span class="skill-tag">yfinance</span>
+            </div>
+            <div class="project-footer">
+              <a href="https://github.com/fsoaz/financial-market-dashboard" target="_blank" rel="noopener noreferrer" class="project-link">
+                View Source Code ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <div class="project-img-wrapper">
+            <img src="assets/images/sales-dashboard.jpg" alt="Sales Analysis Dashboard mockup" class="project-img">
+          </div>
+          <div class="project-content">
+            <div class="project-title">
+              Sales Analysis Dashboard
+            </div>
+            <p class="project-desc">
+              Bilingual analytics dashboard for exploring Superstore revenue, profitability, top products, and period-over-period performance.
+            </p>
+            <div class="skill-pills-container" style="margin-bottom:14px;">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Streamlit</span>
+              <span class="skill-tag">Plotly</span>
+              <span class="skill-tag">Pandas</span>
+            </div>
+            <div class="project-footer">
+              <a href="https://github.com/fsoaz/sales-analysis-dashboard" target="_blank" rel="noopener noreferrer" class="project-link">
+                View Source Code ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card">
+          <div class="project-img-wrapper">
+            <img src="assets/images/trial-reminder-cover.png" alt="Trial Reminder Android app mockup" class="project-img">
+          </div>
+          <div class="project-content">
+            <div class="project-title">
+              Trial Reminder
+            </div>
+            <p class="project-desc">
+              Android app that tracks free-trial end dates and schedules exact reminders so users can cancel before a charge.
+            </p>
+            <div class="skill-pills-container" style="margin-bottom:14px;">
+              <span class="skill-tag">Android</span>
+              <span class="skill-tag">Kotlin</span>
+              <span class="skill-tag">Room</span>
+              <span class="skill-tag">Exact Alarms</span>
+            </div>
+            <div class="project-footer">
+              <a href="https://github.com/fsoaz/TrialReminderApp" target="_blank" rel="noopener noreferrer" class="project-link">
+                View Source Code ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project-card">
+          <div class="project-img-wrapper">
+            <img src="assets/images/dental-radar.jpg" alt="Dental Radar intelligence platform mockup" class="project-img">
           </div>
           <div class="project-content">
             <div class="project-title">
               Dental Radar Intelligence
             </div>
             <p class="project-desc">
-              B2B sales-intelligence platform that scores and ranks dental clinics by purchase propensity using data aggregation algorithms and market signal evaluation.
+              B2B sales-intelligence platform that scores and ranks dental clinics by purchase propensity using data aggregation and market-signal evaluation.
             </p>
             <div class="skill-pills-container" style="margin-bottom:14px;">
               <span class="skill-tag">Python</span>
               <span class="skill-tag">PostgreSQL</span>
               <span class="skill-tag">Next.js</span>
-              <span class="skill-tag">Analytics</span>
+              <span class="skill-tag">Machine Learning</span>
             </div>
             <div class="project-footer">
-              <a href="https://github.com/fsoaz/dental-radar" target="_blank" class="project-link">
+              <a href="https://github.com/fsoaz/dental-radar" target="_blank" rel="noopener noreferrer" class="project-link">
                 View Source Code ↗
               </a>
             </div>
@@ -321,7 +406,7 @@
           <form action="https://formspree.io/f/xpqklvnk" method="POST" class="contact-form">
             <div class="form-group">
               <label for="form-name">Your Name</label>
-              <input type="text" id="form-name" name="name" class="form-input" placeholder="Alex Rivera" required>
+              <input type="text" id="form-name" name="name" class="form-input" placeholder="Your name" required>
             </div>
             <div class="form-group">
               <label for="form-email">Email Address</label>
@@ -329,26 +414,26 @@
             </div>
             <div class="form-group">
               <label for="form-message">Message</label>
-              <textarea id="form-message" name="message" rows="4" class="form-textarea" placeholder="Discussing backend architecture, engineering roles, or consulting..." required></textarea>
+              <textarea id="form-message" name="message" rows="4" class="form-textarea" placeholder="Share the role, team, or project you would like to discuss..." required></textarea>
             </div>
             <button type="submit" class="btn-primary" style="align-self:flex-start;">
-              🚀 Send Transmission
+              Send message
             </button>
           </form>
         </div>
 
         <div class="bento-card" style="display:flex; flex-direction:column; justify-content:space-between;">
           <div>
-            <h3 style="font-size:1.2rem; color:var(--text-main); margin-bottom:12px;">Direct Network Channels</h3>
+            <h3 style="font-size:1.2rem; color:var(--text-main); margin-bottom:12px;">Let’s talk</h3>
             <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:20px;">
-              Feel free to connect directly on GitHub or LinkedIn for code reviews, engineering discussions, or project inquiries.
+              Recruiters and hiring teams: send a role brief or connect on LinkedIn. I’m happy to discuss the systems behind the projects shown here.
             </p>
             <div class="social-links-grid">
-              <a href="https://github.com/fsoaz" target="_blank" class="social-card">
+              <a href="https://github.com/fsoaz" target="_blank" rel="noopener noreferrer" class="social-card">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 <span>GitHub</span>
               </a>
-              <a href="https://linkedin.com/in/fsoaz" target="_blank" class="social-card">
+              <a href="https://linkedin.com/in/fsoaz" target="_blank" rel="noopener noreferrer" class="social-card">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 <span>LinkedIn</span>
               </a>
@@ -356,7 +441,7 @@
           </div>
 
           <div style="margin-top:20px; padding:12px; background:rgba(0,0,0,0.2); border:1px solid var(--border-color); border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:0.78rem; color:var(--text-dim);">
-            STATUS: Node active & ready for remote contracts.
+            STATUS: Available for conversations about backend, platform, and product-engineering work.
           </div>
         </div>
       </div>
