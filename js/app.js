@@ -378,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <p style="color:var(--accent-primary); font-weight:700; margin-bottom:8px;">📬 DIRECT COMMUNICATION CHANNELS:</p>
   <ul style="list-style:none; padding:0; font-size:0.88rem; line-height:1.7;">
     <li>🐙 <strong>GitHub:</strong> <a href="https://github.com/fsoaz" target="_blank" style="color:var(--accent-primary); text-decoration:none;">github.com/fsoaz ↗</a></li>
-    <li>💼 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/fsoaz" target="_blank" style="color:var(--accent-primary); text-decoration:none;">linkedin.com/in/fsoaz ↗</a></li>
+    <li>💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/francisco-soares-b89299427" target="_blank" style="color:var(--accent-primary); text-decoration:none;">linkedin.com/in/francisco-soares-b89299427 ↗</a></li>
     <li>✉️ <strong>Message Form:</strong> Use the contact section in GUI overview or command <span style="color:var(--accent-emerald)">gui</span></li>
   </ul>
 </div>`,
