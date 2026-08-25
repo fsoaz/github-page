@@ -520,6 +520,11 @@ body {
   transition: border-color var(--duration-fast) ease, box-shadow var(--duration-normal) ease, transform var(--duration-normal) var(--ease-smooth);
 }
 
+/* Applied only while Anime.js is actively animating a surface. */
+[data-motion], [data-motion-header], [data-motion-item] {
+  will-change: transform, opacity;
+}
+
 /* Inner Top Rim Lighting Highlight (Google Antigravity style) */
 .bento-surface::before {
   content: '';
@@ -1527,5 +1532,22 @@ body {
 
   .metric-tiles {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Honor user motion preferences across the existing and Anime.js layers. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  #ambient-canvas {
+    display: none;
   }
 }

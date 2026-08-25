@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const terminalLogs = document.getElementById('terminal-logs');
   const cliInput = document.getElementById('cli-input');
   const ambientCanvas = document.getElementById('ambient-canvas');
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   // Telemetry Elements
   const cpuVal = document.getElementById('telemetry-cpu');
@@ -185,6 +186,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initCanvas();
 
   function renderAmbient() {
+    if (reducedMotionQuery.matches) {
+      ctx.clearRect(0, 0, ambientCanvas.width, ambientCanvas.height);
+      animationFrameId = null;
+      return;
+    }
+
     if (state.ambientMode === 'particles') {
       ctx.clearRect(0, 0, ambientCanvas.width, ambientCanvas.height);
 
@@ -258,7 +265,20 @@ document.addEventListener('DOMContentLoaded', () => {
     animationFrameId = requestAnimationFrame(renderAmbient);
   }
 
-  renderAmbient();
+  if (!reducedMotionQuery.matches) {
+    renderAmbient();
+  }
+
+  reducedMotionQuery.addEventListener('change', (event) => {
+    if (event.matches) {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      ctx.clearRect(0, 0, ambientCanvas.width, ambientCanvas.height);
+      animationFrameId = null;
+    } else if (!animationFrameId) {
+      initCanvas();
+      renderAmbient();
+    }
+  });
 
   /* ==========================================================================
      5. Real-Time Telemetry Simulation

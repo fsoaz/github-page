@@ -25,13 +25,17 @@ Bridges an authentic Unix developer terminal with an ultra-sleek, accessible Ben
   - Native Web Audio API keypress synthesizer providing subtle tactile feedback (zero external audio assets).
 - 📊 **Real-Time Telemetry Monitor**:
   - System telemetry bar displaying dynamic metrics (CPU, Memory, Latency, and Node Availability).
+- ✨ **Purposeful Motion Layer**:
+  - Anime.js-powered hero entrance and one-time, staggered section reveals that preserve the systems-dashboard aesthetic.
+  - Honors `prefers-reduced-motion`: content renders immediately and the ambient canvas loop is stopped.
 - 📱 **Responsive & Lightweight**:
-  - Zero framework dependencies, zero build steps, blazingly fast load times optimized for GitHub Pages.
+  - Zero framework dependencies and zero build steps, optimized for GitHub Pages.
 
 ---
 
 ## 🛠️ Tech Stack
 
 - **Core**: HTML5 (Semantic & Accessible), CSS3 (Tokens, Flexbox, CSS Grid, Glassmorphism), Vanilla JavaScript (ES6+)
+- **Motion**: Anime.js 4.5.0 (pinned ES module loaded from jsDelivr)
 - **Audio & Canvas**: Web Audio API, HTML5 Canvas API
 - **Typography**: Inter & JetBrains Mono (Google Fonts)
