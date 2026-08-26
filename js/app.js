@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentTheme: 'antigravity',
     currentView: 'gui',
     audioEnabled: false,
-    ambientMode: 'particles', // 'particles', 'matrix', or 'none'
+    ambientMode: 'none', // 'particles', 'matrix', or 'none' — off by default, toggle via CLI
     commandHistory: [],
     historyIndex: -1,
     audioCtx: null
@@ -32,11 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cliInput = document.getElementById('cli-input');
   const ambientCanvas = document.getElementById('ambient-canvas');
   const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-  // Telemetry Elements
-  const cpuVal = document.getElementById('telemetry-cpu');
-  const memVal = document.getElementById('telemetry-mem');
-  const pingVal = document.getElementById('telemetry-ping');
+  const customCursor = document.getElementById('custom-cursor');
 
   /* ==========================================================================
      1. Web Audio API Tactile Keypress Synthesizer
@@ -281,13 +277,32 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================================
-     5. Real-Time Telemetry Simulation
+     5. Terminal-Caret Cursor Accent
+     Purely additive overlay (pointer:fine + motion-safe only); never disables
+     or replaces the native cursor, never intercepts input.
      ========================================================================== */
-  setInterval(() => {
-    if (cpuVal) cpuVal.textContent = (Math.random() * 2.5 + 1.1).toFixed(1) + '%';
-    if (memVal) memVal.textContent = (Math.random() * 0.3 + 3.8).toFixed(1) + 'GB';
-    if (pingVal) pingVal.textContent = Math.floor(Math.random() * 5 + 9) + 'ms';
-  }, 2800);
+  const pointerFineQuery = window.matchMedia('(pointer: fine)');
+
+  function updateCursorMode() {
+    const shouldEnable = pointerFineQuery.matches && !reducedMotionQuery.matches;
+    document.body.classList.toggle('cursor-caret-active', shouldEnable);
+  }
+
+  if (customCursor) {
+    updateCursorMode();
+    pointerFineQuery.addEventListener('change', updateCursorMode);
+    reducedMotionQuery.addEventListener('change', updateCursorMode);
+
+    let cursorRaf = null;
+    window.addEventListener('mousemove', (e) => {
+      if (!document.body.classList.contains('cursor-caret-active')) return;
+      if (cursorRaf) return;
+      cursorRaf = requestAnimationFrame(() => {
+        customCursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY - 2}px, 0)`;
+        cursorRaf = null;
+      });
+    });
+  }
 
   /* ==========================================================================
      6. Interactive Terminal Engine & Commands

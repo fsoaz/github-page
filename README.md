@@ -1,33 +1,32 @@
-# ✦ Francisco Soares — Engineering Portfolio & Terminal Console
+# ✦ Francisco Soares — Systems Log & Terminal Console
 
-A world-class personal portfolio, interactive CLI shell, and agentic systems showcase inspired by **Google Antigravity** design language, built with pure HTML5, CSS3, and Vanilla JavaScript.
+A personal portfolio and interactive CLI shell built as one continuous engineering document — pure HTML5, CSS3, and Vanilla JavaScript, zero framework, zero build step.
 
-Bridges an authentic Unix developer terminal with an ultra-sleek, accessible Bento-grid overview for technical recruiters, engineering leaders, and collaborators.
+Bridges an authentic Unix developer terminal with an editorial, accessible "systems log" overview for technical recruiters, engineering leaders, and collaborators.
 
 ---
 
 ## ✨ Architectural Features
 
-- ✦ **Antigravity Design System**:
-  - Precision 8px baseline grid layout with frosted glassmorphic surfaces (`backdrop-filter: blur(14px)`).
-  - Subtle top-rim lighting highlights and balanced contrast adhering strictly to **WCAG AA standards**.
-  - Dynamic dual-mode view: **Overview Dashboard** & **Interactive Terminal Console**.
+- ✦ **Systems Log Design System**:
+  - Flat ink/paper surfaces (no glassmorphism), hairline rules, and a persistent chapter-index rail running the page via pure CSS Grid — no scroll-tracking JS.
+  - Monospace-led structural typography (JetBrains Mono) paired with oversized display headlines (Inter), balanced against **WCAG AA** contrast.
+  - Dynamic dual-mode view: **Overview** & **Interactive Terminal Console**, sharing one visual language.
 - ⌨️ **Interactive CLI Shell**:
   - Full shell engine with tab autocompletion (`Tab`), history navigation (`Up`/`Down`), and custom commands (`help`, `whoami`, `neofetch`, `skills`, `projects`, `contact`, `theme`, `particles`, `matrix`, `gui`, `clear`, `sudo`).
   - Instant keyboard toggle (`\`\`` / `~`) to switch seamlessly between GUI and Terminal from anywhere.
   - Mobile-ready quick-action command pills bar.
-- 🌌 **Antigravity Particle & Digital Rain Canvas**:
-  - Live interactive ambient physics particle constellation engine with mouse repulsion.
-  - Optional Matrix digital rain mode accessible via CLI `$ matrix` or quick toolbar.
+- 🌌 **Ambient Particle & Digital Rain Canvas** (opt-in):
+  - Off by default; discoverable via CLI `$ particles` or `$ matrix` — an interactive constellation field or Matrix digital rain.
 - 🎨 **Multi-Theme Palette Engine**:
-  - Zero-latency theme switching between **Antigravity Obsidian**, **Cyber Blue**, **Dracula**, **Monokai**, **Nord Frost**, and **Matrix**.
+  - Zero-latency accent-swap theming between **Antigravity**, **Cyber Blue**, **Dracula**, **Monokai**, **Nord Frost**, and **Matrix**, on one consistent flat ground.
 - 🔊 **Acoustic Mechanical Key Synthesizer**:
   - Native Web Audio API keypress synthesizer providing subtle tactile feedback (zero external audio assets).
-- 📊 **Real-Time Telemetry Monitor**:
-  - System telemetry bar displaying dynamic metrics (CPU, Memory, Latency, and Node Availability).
 - ✨ **Purposeful Motion Layer**:
-  - Anime.js-powered hero entrance and one-time, staggered section reveals that preserve the systems-dashboard aesthetic.
+  - Anime.js-powered staggered hero headline reveal, one-time section reveals, and scroll-triggered clip-path image wipes on project entries.
   - Honors `prefers-reduced-motion`: content renders immediately and the ambient canvas loop is stopped.
+- 🖱️ **Terminal-Caret Cursor Accent**:
+  - A subtle blinking-caret overlay follows the pointer on fine-pointer, motion-safe devices — purely additive, never replaces the native cursor.
 - 📱 **Responsive & Lightweight**:
   - Zero framework dependencies and zero build steps, optimized for GitHub Pages.
 
