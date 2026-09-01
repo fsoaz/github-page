@@ -16,18 +16,18 @@ A personal portfolio and interactive terminal console that presents Francisco So
 
 ## Positioning
 
-The core pitch is the engineering work itself: high-concurrency Python backends, distributed data pipelines, and evidence-backed AI systems (e.g. WikiAI's citation-grounded generative search). The site's dual-mode GUI/interactive-CLI shell and "Antigravity" visual system are supporting craft signals, not the primary claim — they should reinforce the engineering story, not compete with it for attention.
+The core pitch is the engineering work itself: high-concurrency Python backends, distributed data pipelines, and evidence-backed AI systems (e.g. WikiAI's citation-grounded generative search). The site's immersive, scroll-driven WebGL presentation and slide-up terminal easter egg are supporting craft signals, not the primary claim — they should reinforce the engineering story, not compete with it for attention.
 
 ## Operating Context
 
 - Single-page static site (no backend, no build step), deployed on GitHub Pages.
-- Two view modes toggled from the header or backtick key: a Bento-grid "Overview" dashboard and an "Terminal" CLI shell with custom commands (`help`, `whoami`, `neofetch`, `skills`, `projects`, `contact`, `theme`, `particles`, `matrix`, `gui`, `clear`, `sudo`).
+- A single scrolling page (Hero, Skills, Projects, Contact) with a persistent top nav; a slide-up "Terminal" drawer (opened via the header button or the backtick key) offers custom commands (`help`, `whoami`, `neofetch`, `skills`, `projects`, `contact`, `theme`, `particles`, `matrix`, `clear`, `sudo`) as an optional easter egg, not a primary view.
 - Contact form submits via Formspree (`https://formspree.io/f/xpqklvnk`); direct channels link to GitHub (`github.com/fsoaz`) and LinkedIn (`linkedin.com/in/francisco-soares-b89299427`).
-- Six selectable color themes (Antigravity Obsidian, Cyber Blue, Dracula, Monokai, Nord Frost, Matrix) plus an ambient particle/matrix-rain canvas background.
+- Three selectable accent themes (Obsidian, Cyber, Nord), a WebGL background scene (tiered full/lite/no-webgl fallback: fbm-noise shader with film grain and a particle field, scroll-driven camera dolly), and GSAP/ScrollTrigger/Lenis-driven scroll choreography (word-level reveals, magnetic buttons, 3D card tilt, cursor-reactive shader distortion).
 
 ## Capabilities and Constraints
 
-- Zero framework dependencies, zero build step — pure HTML5/CSS3/vanilla JS (plus Anime.js for motion), intentionally kept that way for GitHub Pages hosting.
+- Zero framework dependencies, zero build step — pure HTML5/CSS3/vanilla JS, plus Three.js, GSAP/ScrollTrigger, and Lenis (all loaded via CDN `<script>` tags, no bundler) for the WebGL scene and scroll motion, intentionally kept build-step-free for GitHub Pages hosting.
 - Must honor `prefers-reduced-motion` (already implemented: content renders immediately, ambient canvas loop stops).
 - Currently open to full-time roles ("Open for engineering opportunities" badge is accurate). No resume/CV file exists yet to link — do not add a download link or fabricate one until a file is provided.
 
